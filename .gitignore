@@ -1,0 +1,21 @@
+# Dependencies and build output
+node_modules/
+.next/
+out/
+dist/
+
+# Local environment and secrets
+.env
+.env.*
+!.env*.example
+env.local
+
+# Generated/local artifacts
+.DS_Store
+tmp/
+output/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*

@@ -1,0 +1,174 @@
+:root {
+  --pet-green: #3eaa58;
+  --pet-deep: #1f5130;
+  --pet-ink: #203126;
+  --pet-muted: #6b7d70;
+  --pet-line: #dcebdd;
+  --pet-wash: #f5fbf5;
+  --pet-card: rgba(255, 255, 255, .92);
+  --pet-shadow: 0 14px 35px rgba(35, 92, 47, .10);
+}
+
+body { background: var(--pet-wash); color: var(--pet-ink); }
+.site { background: radial-gradient(circle at 8% 4%, #e1f5e2 0, transparent 22%), radial-gradient(circle at 93% 10%, #e9f8e9 0, transparent 25%), #f7fbf7; }
+.desktop-nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.9) !important; backdrop-filter: blur(16px); }
+.desktop-nav .logo { letter-spacing: -.8px; }
+.desktop-nav button { transition: background .18s ease, color .18s ease, transform .18s ease; }
+.desktop-nav button:hover { transform: translateY(-1px); }
+
+.page-intro { padding-bottom: 10px; border-bottom: 1px solid var(--pet-line); margin-bottom: 22px; }
+.page-intro h1, .welcome-panel h1 { letter-spacing: -.7px; color: var(--pet-deep); }
+.page-intro p { max-width: 550px; line-height: 1.55; }
+.button { border-radius: 10px; background: linear-gradient(135deg, #43ad59, #63c46d); box-shadow: 0 10px 20px rgba(46, 151, 65, .19); transition: transform .18s ease, box-shadow .18s ease; }
+.button:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 25px rgba(46, 151, 65, .26); }
+.button:active:not(:disabled) { transform: translateY(0); }
+
+.welcome-panel { border: 1px solid #d5ead6; border-radius: 22px; background: linear-gradient(120deg, #ffffff 0%, #ebf8eb 72%, #d7f2d9 100%); box-shadow: var(--pet-shadow); overflow: hidden; }
+.welcome-panel > span { filter: drop-shadow(0 10px 8px rgba(44, 128, 55, .18)); }
+.dashboard-card, .pet-card, .vet, .preview, .health, .group, .appointment-card, .health-record-card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.dashboard-card, .pet-card, .vet, .preview, .health { border: 1px solid var(--pet-line); box-shadow: 0 8px 22px rgba(39, 94, 50, .07); }
+.pet-card:hover, .vet:hover, .preview:hover { transform: translateY(-3px); border-color: #a6d7a9; box-shadow: var(--pet-shadow); }
+.pet-card img, .vet img, .preview img { box-shadow: 0 4px 12px rgba(30, 78, 40, .12); }
+
+.form, .profile-edit { border: 1px solid var(--pet-line); padding: 28px !important; }
+.field input, .field select, .field textarea { border-radius: 10px !important; border: 1px solid #d5e6d6 !important; background: #fbfefb !important; padding: 11px 12px !important; transition: border .18s ease, box-shadow .18s ease, background .18s ease; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #60b96a !important; background: #fff !important; box-shadow: 0 0 0 4px rgba(82, 181, 94, .13); }
+.field small { font-weight: 700; color: #527157; }
+.times button.unavailable, .times button:disabled { background: #edf0ed; color: #a2aaa3; text-decoration: line-through; cursor: not-allowed; opacity: .75; }
+.photo, .profile-photo { border: 3px solid #fff; outline: 2px dashed #8bd193; box-shadow: 0 10px 24px rgba(44, 123, 56, .16); }
+
+.group { border-radius: 15px; border-color: var(--pet-line); box-shadow: 0 8px 22px rgba(38, 91, 48, .055); }
+.group h3 { color: var(--pet-deep); }
+.group article { background: linear-gradient(145deg, #fff, #f7fcf7); border-color: #e1eee1; }
+.health-record-card { border-left: 4px solid #62bb6c; }
+.record-type { background: #e1f5e3; }
+.schedule .appointment-card { border-left: 4px solid #55b761; }
+.schedule > .outline { background: linear-gradient(135deg, #43ad59, #63c46d); color: #fff; border-color: transparent; }
+.appointment-section { display: grid; gap: 12px; margin: 0 0 28px; }
+.appointment-section h2 { margin: 0; color: var(--pet-deep); font: 800 18px Nunito, sans-serif; }
+.previous-section { padding-top: 24px; border-top: 1px solid var(--pet-line); }
+.previous-section > p { margin: -4px 0 3px; color: var(--pet-muted); font-size: 12px; }
+.past-appointment { border-left-color: #aebbb0 !important; background: #fafcf9 !important; opacity: .82; }
+.past-appointment .appointment-status { background: #edf0ed; color: #68756a; }
+.appointment-card aside { min-width: 96px; }
+
+.vet-detail, .profile { border: 1px solid var(--pet-line); box-shadow: var(--pet-shadow); }
+.vet-detail section { padding: 25px; }
+.profile > button { border: 1px solid #e1ede1; transition: transform .18s ease, box-shadow .18s ease; }
+.profile > button:hover { transform: translateY(-2px); box-shadow: var(--pet-shadow); }
+.search { background: #fff; border-color: #a4d9a9; box-shadow: 0 7px 18px rgba(46, 110, 57, .06); }
+.search:focus-within { box-shadow: 0 0 0 4px rgba(81, 181, 94, .13); }
+.admin-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding: 7px; margin: 18px 0 24px; border: 1px solid var(--pet-line); border-radius: 14px; background: #fff; box-shadow: 0 7px 18px rgba(39, 94, 50, .06); }
+.admin-tabs button { flex: 1 1 120px; border: 0; border-radius: 9px; padding: 11px 15px; background: transparent; color: #607363; font: 700 13px 'DM Sans', sans-serif; cursor: pointer; transition: color .18s ease, background .18s ease, transform .18s ease, box-shadow .18s ease; }
+.admin-tabs button:hover { color: var(--pet-deep); background: #eff8ef; }
+.admin-tabs button.active { color: #fff; background: linear-gradient(135deg, #43ad59, #64c76d); box-shadow: 0 7px 14px rgba(49, 151, 65, .24); transform: translateY(-1px); }
+.user-menu { position: relative; margin-left: auto; }
+.desktop-nav .desktop-user { margin-left: 0; border: 0; background: transparent; color: #3b6745; font: 700 12px 'DM Sans', sans-serif; cursor: pointer; padding: 9px 10px; }
+.desktop-nav .desktop-user:hover { background: #eff8ef; }
+.user-dropdown { position: absolute; right: 0; top: calc(100% + 10px); z-index: 30; min-width: 135px; padding: 6px; border: 1px solid var(--pet-line); border-radius: 12px; background: #fff; box-shadow: 0 14px 30px rgba(30, 80, 39, .16); }
+.desktop-nav .user-dropdown button { display: block; width: 100%; padding: 10px 11px; border-radius: 8px; color: #385b3e; text-align: left; }
+.desktop-nav .user-dropdown button:last-child { color: #bc4545; }
+
+@media (max-width: 760px) {
+  .page-intro { margin-bottom: 16px; }
+  .form, .profile-edit { padding: 22px !important; border-radius: 16px; }
+  .welcome-panel { border-radius: 16px; }
+}
+
+.dashboard-card > .health-heart { color: #e86491; }
+
+/* Gentle motion: makes the interface feel responsive without distracting from care tasks. */
+@keyframes pet-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pet-paw-float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-8px) rotate(4deg); }
+}
+@keyframes pet-soft-pulse {
+  0%, 100% { box-shadow: 0 10px 20px rgba(46, 151, 65, .19); }
+  50% { box-shadow: 0 14px 29px rgba(46, 151, 65, .34); }
+}
+
+main > *, .admin-control > *, .admin-user-detail > * {
+  animation: pet-fade-up .42s ease both;
+}
+main > *:nth-child(2), .admin-control > *:nth-child(2) { animation-delay: .06s; }
+main > *:nth-child(3), .admin-control > *:nth-child(3) { animation-delay: .12s; }
+main > *:nth-child(4), .admin-control > *:nth-child(4) { animation-delay: .18s; }
+.welcome-panel > span { animation: pet-paw-float 3.8s ease-in-out infinite; }
+.button:not(:disabled) { animation: pet-soft-pulse 3s ease-in-out infinite; }
+.appointment-card:hover, .dashboard-card:hover, .health:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 15px 30px rgba(39, 94, 50, .13); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+.auth-logo {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--pet-deep);
+  font: 800 32px Nunito, sans-serif;
+  letter-spacing: -.8px;
+  cursor: pointer;
+}
+.auth-logo b { color: #55b65b; font: inherit; }
+.auth-logo:hover { transform: translateY(-1px); }
+
+.signup-photo {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: 2px dashed #8bd193;
+  border-radius: 50%;
+  background: #f2faf2 center / cover no-repeat;
+  color: var(--pet-green);
+  cursor: pointer;
+  overflow: hidden;
+}
+.signup-photo small { color: var(--pet-deep); font-size: 9px; font-weight: 700; }
+.signup-photo input { display: none; }
+.signup-photo:hover { border-color: var(--pet-green); transform: translateY(-2px); }
+
+.detail .stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 560px) { .detail .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Compact pet profile photo on desktop and mobile. */
+.hero { height: 210px; display: grid; place-items: center; background: linear-gradient(135deg, #e4f7e6, #cdeed1); }
+.hero img { width: 154px; height: 154px; border: 6px solid #fff; border-radius: 50%; object-fit: cover; box-shadow: 0 14px 30px rgba(35, 103, 48, .20); }
+.hero .pet-back { top: 20px; left: 24px; width: 42px; height: 42px; display: grid; place-items: center; border: 0; border-radius: 50%; background: #fff; color: var(--pet-green); font-size: 24px; font-weight: 800; line-height: 1; box-shadow: 0 6px 16px rgba(35, 103, 48, .14); cursor: pointer; }
+.hero .pet-back:hover { transform: translateX(-2px); background: #eff9ef; }
+.detail { margin-top: -14px !important; border-radius: 20px 20px 0 0; }
+@media (min-width: 761px) { .hero { height: 230px; } .hero img { width: 170px; height: 170px; } }
+
+/* Messenger-style conversation composer. */
+.messenger-composer { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 9px !important; border: 1px solid #82cb8b !important; border-radius: 18px !important; box-shadow: 0 10px 26px rgba(36, 105, 49, .14); }
+.attachment-input { display: none; }
+.messenger-composer .attach-button, .messenger-composer .send-button { flex: 0 0 37px; width: 37px; height: 37px; display: grid; place-items: center; border-radius: 50%; padding: 0; font-size: 21px; line-height: 1; }
+.messenger-composer .attach-button { background: #ecf8ed; color: #3fa951; }
+.messenger-composer .send-button { background: linear-gradient(135deg, #43ad59, #63c46d); color: #fff; box-shadow: 0 5px 12px rgba(45, 143, 60, .26); }
+.messenger-composer .message-text { flex: 1 1 230px; min-width: 0; border: 0; padding: 8px 4px; font: inherit; outline: 0; background: transparent; }
+.attachment-chip { order: -1; width: 100%; display: flex; align-items: center; gap: 5px; padding: 7px 10px; border-radius: 10px; background: #edf8ee; color: #326a3b; font-size: 12px; font-weight: 700; }
+.attachment-chip button { margin-left: auto; width: 22px; height: 22px; border: 0; border-radius: 50%; background: #d4ecd6; color: #36723e; cursor: pointer; }
+.sent-message { display: grid; justify-items: end; gap: 6px; margin: 12px 0; }
+.sent-message .mine { margin: 0; }
+.chat-image { max-width: min(300px, 72vw); max-height: 260px; border: 2px solid #fff; border-radius: 16px; object-fit: cover; box-shadow: 0 7px 18px rgba(31, 84, 41, .16); }
+.chat-file { display: block; max-width: 300px; padding: 10px 13px; border-radius: 14px; background: #e5f6e7; color: #255e30; font-size: 12px; font-weight: 700; text-decoration: none; word-break: break-word; }
+
+.pet-editor-photo { width: 128px; height: 128px; margin: 4px auto 24px; display: grid; place-items: end center; border: 4px solid #fff; border-radius: 50%; background: #eff9ef center / cover no-repeat; box-shadow: 0 10px 25px rgba(33, 97, 46, .18); overflow: hidden; cursor: pointer; }
+.pet-editor-photo span { width: 100%; padding: 8px 0; background: rgba(26, 74, 35, .78); color: #fff; text-align: center; font-size: 11px; font-weight: 700; }
+.pet-editor-photo input { display: none; }
+.manage-pet-form .manage-save { color: #fff !important; }
+
+.detail .outline { color: #fff !important; }
