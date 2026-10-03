@@ -68,8 +68,8 @@ export function sessionResponse(data, user) {
   const response = NextResponse.json(data, { headers: corsHeaders });
   response.cookies.set(SESSION_COOKIE, createSession(user), {
     httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    sameSite: "none",
+    secure: true,
     maxAge: SESSION_LIFETIME_SECONDS,
     path: "/",
   });
@@ -78,6 +78,6 @@ export function sessionResponse(data, user) {
 
 export function logoutResponse() {
   const response = NextResponse.json({ message: "Signed out" }, { headers: corsHeaders });
-  response.cookies.set(SESSION_COOKIE, "", { httpOnly: true, maxAge: 0, path: "/" });
+  response.cookies.set(SESSION_COOKIE, "", { httpOnly: true, sameSite: "none", secure: true, maxAge: 0, path: "/" });
   return response;
 }
