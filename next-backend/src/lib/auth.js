@@ -40,7 +40,7 @@ export function createSession(user) {
 }
 
 export function getSession(request) {
-  const value = request.cookies.get(SESSION_COOKIE)?.value;
+  const value = request.cookies.get(SESSION_COOKIE)?.value || request.headers.get("authorization")?.replace(/^Bearer\s+/i, "");
   if (!value) return null;
   const [payload, signature] = value.split(".");
   if (!payload || !signature) return null;
@@ -65,8 +65,9 @@ export function isAdmin(session) {
 }
 
 export function sessionResponse(data, user) {
-  const response = NextResponse.json(data, { headers: corsHeaders });
-  response.cookies.set(SESSION_COOKIE, createSession(user), {
+  const token = createSession(user);
+  const response = NextResponse.json({ ...data, sessionToken: token }, { headers: corsHeaders });
+  response.cookies.set(SESSION_COOKIE, token, {
     httpOnly: true,
     sameSite: "none",
     secure: true,

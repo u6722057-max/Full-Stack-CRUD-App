@@ -25,6 +25,25 @@ const demoDoctors = [
   { id: "demo-sofia", name: "Dr. Sofia Reyes", specialty: "Animal Behaviour & Wellness", clinicName: "Pet Wellness Centre", availableHours: "Tue–Sun · 9:00 AM–4:00 PM", rating: "4.9", gender: "Female", photoUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=85" },
 ];
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+const originalFetch = window.fetch.bind(window);
+window.fetch = (input, init = {}) => {
+  const url = typeof input === "string" ? input : input.url;
+  const token = localStorage.getItem("petcare_session_token");
+  if (token && url.startsWith(apiBaseUrl)) {
+    const headers = new Headers(init.headers || (typeof input !== "string" ? input.headers : undefined));
+    headers.set("Authorization", `Bearer ${token}`);
+    init = { ...init, headers };
+  }
+  return originalFetch(input, init).then(response => {
+    if (response.ok && /\/api\/auth\/(sign-in|sign-up)$/.test(url)) {
+      response.clone().json().then(data => {
+        if (data.sessionToken) localStorage.setItem("petcare_session_token", data.sessionToken);
+      }).catch(() => {});
+    }
+    if (/\/api\/auth\/session$/.test(url) && init.method === "DELETE") localStorage.removeItem("petcare_session_token");
+    return response;
+  });
+};
 const pages = { home: "Home", records: "Pet Health", appointment: "Appointments", messages: "Messages", profile: "Pixel Posse" };
 
 function Button({ children, className = "", ...props }) { return <button className={`button ${className}`} {...props}>{children}</button>; }
