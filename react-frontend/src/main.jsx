@@ -91,7 +91,10 @@ function SessionGate() {
       .finally(() => setChecking(false));
   }, []);
   if (checking) return <main className="welcome"><div><div className="logo">PET<span>CARE</span></div><h1>Loading your session...</h1></div></main>;
-  if (!authenticated) return <Welcome setPage={() => {}} onAuth={() => window.location.reload()} startMode="signin" />;
+  if (!authenticated) {
+    sessionStorage.setItem("petcare_page", "home");
+    return <App initialUser={null} />;
+  }
   return <App initialUser={sessionUser} />;
 }
 
