@@ -6,6 +6,10 @@ PetCare is a full-stack pet health and appointment management system. Pet owners
 
 https://full-stack-crud-app-9z54.vercel.app/
 
+## Team Member Repository
+https://github.com/NAGR1/web_final_project
+https://github.com/u6722057-max/Full-Stack-CRUD-App
+
 ## Features
 
 - Visitor Home page with public doctor and appointment information
