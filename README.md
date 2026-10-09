@@ -8,6 +8,9 @@ The system includes a React frontend, Next.js backend API, MongoDB database, aut
 
 https://full-stack-crud-app-9z54.vercel.app/
 
+## Azure VM 
+http://20.196.65.109/
+
 ## Team Member Repository
 https://github.com/NAGR1/web_final_project
 https://github.com/u6722057-max/Full-Stack-CRUD-App
