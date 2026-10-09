@@ -15,7 +15,7 @@ export async function POST(request) {
     const users = collection(await getClientPromise(), "users");
     const email = data.email.trim().toLowerCase();
     if (await users.findOne({ email })) return errorResponse("An account already uses this email", 409);
-    const user = createDocument({ name: data.name.trim(), email, phone: data.phone.trim(), gender: data.gender, passwordHash: hashPassword(data.password), role: email === adminEmail() ? "admin" : "user" });
+    const user = createDocument({ name: data.name.trim(), email, phone: data.phone.trim(), gender: data.gender, photoUrl: String(data.photoUrl || "").trim(), passwordHash: hashPassword(data.password), role: email === adminEmail() ? "admin" : "user" });
     const result = await users.insertOne(user);
     user._id = result.insertedId;
     return sessionResponse({ user: publicUser(user) }, user);
