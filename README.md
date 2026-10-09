@@ -1,6 +1,8 @@
 # PetCare
 
-PetCare is a full-stack pet health and appointment management system. Pet owners can manage multiple pets, store pet-specific health records, browse veterinarians, and manage appointments from a responsive web application.
+PetCare is a full-stack pet healthcare management system that helps pet owners manage their pets, health records, doctor appointments, and communication with veterinarians.
+Users can create accounts, manage their profiles, add pets, upload pet photos, record health information, book appointments, and view doctor details. Administrators can manage users, pets, doctors, doctor photos, and appointment time slots.
+The system includes a React frontend, Next.js backend API, MongoDB database, authentication, role-based admin access, and CRUD operations for users, pets, doctors, and health records.
 
 ## Live application
 
