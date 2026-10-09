@@ -122,6 +122,7 @@ main > *:nth-child(4), .admin-control > *:nth-child(4) { animation-delay: .18s; 
 .auth-logo:hover { transform: translateY(-1px); }
 
 .signup-photo {
+  display: none;
   width: 88px;
   height: 88px;
   margin: 0 auto 18px;
